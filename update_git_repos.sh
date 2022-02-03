@@ -18,11 +18,15 @@ then
 else
     old_org_name=$1
     new_org_name=$2
-
+    
+    echo Renaming from "$old_org_name" to "$new_org_name"...
+    
     for dir in */
     do
         pushd "$dir" > /dev/null 2>&1
-
+        
+        echo Checking "$dir" ...
+           
         # The git rev-parse command gives a return code of 0 if and
         # only if the current directory is a git repo.
         #
