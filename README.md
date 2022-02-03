@@ -9,7 +9,9 @@ by replacing instances of `old_org_name` with `new_org_name`.
 
 ```
 cd ~/Projects
-update_git_repos.sh old_org_name new_org_name
+wget https://raw.githubusercontent.com/lauvdk/github_org_name_change/develop/update_git_repos.sh
+chmod +x update_git_repos.sh
+./update_git_repos.sh ConnectHolland Harborn-digital
 ```
 
 ## License ##
