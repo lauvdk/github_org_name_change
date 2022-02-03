@@ -3,26 +3,23 @@
 # update_git_repos.sh old_org_name new_org_name directory
 #
 # Update the default git remote (origin) for all git repositories
-# directly inside the specified directory.  The git remotes are
+# directly inside the directory you are.  The git remotes are
 # updated by replacing instances of old_org_name with new_org_name.
 
 set -o nounset
 set -o errexit
 set -o pipefail
 
-HELP_INFORMATION="update_git_repos.sh old_org_name new_org_name directory"
+HELP_INFORMATION="update_git_repos.sh old_org_name new_org_name"
 
-if [[ $# -ne 3 ]]
+if [[ $# -ne 2 ]]
 then
     echo "$HELP_INFORMATION"
 else
     old_org_name=$1
     new_org_name=$2
-    directory=$3
 
-    dirs=$(find "$directory" -maxdepth 1 -type d)
-
-    for dir in $dirs
+    for dir in */
     do
         pushd "$dir" > /dev/null 2>&1
 
